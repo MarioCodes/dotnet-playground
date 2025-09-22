@@ -1,16 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
 	<LangVersion>12.0</LangVersion>
+    <UserSecretsId>4411dee9-5a75-43ca-840e-5939d6149f8a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.0" />
-	  <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
+	  <PackageReference Include="Microsoft.Extensions.AI" Version="9.9.0" />
+	  <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.9.0-preview.1.25458.4" />
+	  <PackageReference Include="OllamaSharp" Version="5.4.6" />
   </ItemGroup>
 
 </Project>
