@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using template.Configuration;
+using llms.Configuration;
 
-namespace template
+namespace llms
 {
     public class Startup
     {
@@ -21,7 +21,7 @@ namespace template
         public void ConfigureServices(IServiceCollection services)
         {
             // Custom Configurations
-            services.Configure<DuckConfig>(_config.GetSection(DuckConfig.Section));
+            services.Configure<LlmsConfig>(_config.GetSection(LlmsConfig.Section));
 
         }
 

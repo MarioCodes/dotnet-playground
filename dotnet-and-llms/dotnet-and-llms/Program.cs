@@ -1,7 +1,7 @@
-using template.Models;
-using template.Models.algorithms.implementations;
+using llms.Models;
+using llms.Models.algorithms.implementations;
 
-namespace template
+namespace llms
 {
     public class Program
     {

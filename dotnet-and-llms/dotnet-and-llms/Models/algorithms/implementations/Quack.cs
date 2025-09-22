@@ -1,7 +1,7 @@
-﻿using template.Models.algorithms.interfaces;
+﻿using llms.Models.algorithms.interfaces;
 using System;
 
-namespace template.Models.algorithms.implementations
+namespace llms.Models.algorithms.implementations
 {
     public class Quack : IQuackBehaviour
     {

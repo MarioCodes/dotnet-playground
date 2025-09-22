@@ -1,7 +1,7 @@
-﻿using template.Models.algorithms.implementations;
+﻿using llms.Models.algorithms.implementations;
 using System;
 
-namespace template.Models
+namespace llms.Models
 {
     public class RedheadDuck : Duck
     {
