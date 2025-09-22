@@ -247,3 +247,4 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 /dotnet-and-llms/dotnet-and-llms/appsettings.Development.json
+/dotnet-and-llms/dotnet-and-llms/appsettings.Development.json
