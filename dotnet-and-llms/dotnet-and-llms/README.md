@@ -25,3 +25,11 @@ This goes into appsettings.Development.json
   }
 }
 ~~~ bash
+
+## TODO  
+add logging  
+cache results  
+batch requests  
+implement timeouts  
+implement retries  
+add chat history  
