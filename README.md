@@ -6,3 +6,6 @@ Personal repository to test new .NET features, nuggets, or integrations
 
 ## efcore-and-middleware
 .NET test project where I implement Entity Framework Core as ORM (it injects test data), a custom middleware and a test suite
+
+## csharp-features
+.NET projects compilation to test C# features
