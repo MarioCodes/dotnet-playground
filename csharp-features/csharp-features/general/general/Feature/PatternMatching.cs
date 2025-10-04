@@ -2,6 +2,8 @@
 {
     public abstract class PatternMatching
     {
+        public record NAOrder(string Status, decimal Cost) : Order(Status, Cost);
+        public record EUOrder(string Status, decimal Cost) : Order(Status, Cost);
         public record Order(string Status, decimal Cost);
         public record Reference(int Id, bool Completed);
 
@@ -114,6 +116,26 @@
                 null => throw new ArgumentNullException(nameof(reference), "can't act on null"),
             };
 
+        #endregion
+
+        #region ifs
+        public void CheckCancelledOrders(Order? order)
+        {
+            if (order is null)
+            {
+                throw new InvalidOperationException("cannot operate on null order");
+            }
+
+            if (order is EUOrder { Status: "Cancelled", Cost: > 10000 })
+            {
+                // check and do GDPR compliant things
+                SendEmail(order);
+            }
+            else if (order is NAOrder { Status: "Cancelled", Cost: > 10000 })
+            {
+                SendEmail(order);
+            }
+        }
         #endregion
     }
 }
