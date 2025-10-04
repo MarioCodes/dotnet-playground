@@ -116,6 +116,14 @@
                 null => throw new ArgumentNullException(nameof(reference), "can't act on null"),
             };
 
+        public Reference CheckSpecialOrders(Order order) =>
+            order switch
+            {
+                NAOrder o when o.Status == "Cancelled" => GetCancelledOrderRef(order),
+                EUOrder o when o.Status == "Cancelled" => GetCancelledOrderRef(order),
+                _ => throw new InvalidOperationException("Unknown status"),
+            };
+
         #endregion
 
         #region ifs
