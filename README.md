@@ -11,4 +11,4 @@ Personal repository to test new .NET features, nuggets, or integrations
 .NET projects compilation to test C# features
 
 ## razor-pages
-.NET project to test Razor Pages features. CRUD example. 
+.NET project to test Razor Pages features. CRUD example. It includes EF Core as ORM and a local database. 
