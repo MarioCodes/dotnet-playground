@@ -9,3 +9,6 @@ Personal repository to test new .NET features, nuggets, or integrations
 
 ## csharp-features
 .NET projects compilation to test C# features
+
+## razor-pages
+.NET project to test Razor Pages features. CRUD example. 
