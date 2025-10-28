@@ -12,9 +12,9 @@ namespace RazorPages.Pages.Students
 {
     public class CreateModel : PageModel
     {
-        private readonly RazorPages.Data.SchoolContext _context;
+        private readonly SchoolContext _context;
 
-        public CreateModel(RazorPages.Data.SchoolContext context)
+        public CreateModel(SchoolContext context)
         {
             _context = context;
         }
@@ -25,20 +25,29 @@ namespace RazorPages.Pages.Students
         }
 
         [BindProperty]
-        public Student Student { get; set; } = default!;
+        public Student Student { get; set; }
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Students.Add(Student);
-            await _context.SaveChangesAsync();
+            // we use TryUpdate as this way we have complete control over the properties that are included in the binding
+            // it is a security best practice because it prevents overposting - this prevents some values to be overriden by bad actors
+            if(await TryUpdateModelAsync<Student>(
+                Student,
+                "student",
+                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
+            {
+                _context.Students.Add(Student);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }
