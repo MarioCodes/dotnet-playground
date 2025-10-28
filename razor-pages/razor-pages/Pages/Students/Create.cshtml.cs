@@ -24,8 +24,9 @@ namespace RazorPages.Pages.Students
             return Page();
         }
 
+        // what we read from front's form is a StudentVM ...
         [BindProperty]
-        public Student Student { get; set; }
+        public StudentVM StudentVM { get; set; }
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -35,19 +36,12 @@ namespace RazorPages.Pages.Students
                 return Page();
             }
 
-            // we use TryUpdate as this way we have complete control over the properties that are included in the binding
-            // it is a security best practice because it prevents overposting - this prevents some values to be overriden by bad actors
-            if(await TryUpdateModelAsync<Student>(
-                Student,
-                "student",
-                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
-            {
-                _context.Students.Add(Student);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
-            }
-
-            return Page();
+            var entry = _context.Add(new Student());
+            // ... but what we save into the DDBB is a Student
+            // this does name pattern matching from StudentVM to Student
+            entry.CurrentValues.SetValues(StudentVM);
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./Index");
         }
     }
 }
