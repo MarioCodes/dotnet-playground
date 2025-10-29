@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using razor_pages;
+using RazorPages;
 using RazorPages.Data;
 using RazorPages.Models;
 

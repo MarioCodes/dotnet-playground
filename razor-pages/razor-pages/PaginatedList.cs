@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace razor_pages
+namespace RazorPages
 {
     public class PaginatedList<T> : List<T>
     {
