@@ -17,3 +17,4 @@ It features:
 * sorting
 * filtering
 * pagination
+* migrations
