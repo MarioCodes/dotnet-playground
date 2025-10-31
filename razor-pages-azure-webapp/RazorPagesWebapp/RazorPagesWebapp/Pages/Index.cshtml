@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Landing Page";
 }
+@using System.Configuration
+@inject ILogger<IndexModel> Logger
 
-<!-- Estilos rápidos para una apariencia moderna -->
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,4 +46,12 @@
 <div class="container">
     <h1>Bienvenidos a mi landing page de mi POC</h1>
     <p>Esta es una demostración de una Razor Page desplegada en Azure Web Apps.</p>
+    @{
+        string message = Model.Message;
+        if (!string.IsNullOrEmpty(message))
+        {
+                <p>@message</p>
+        }
+    }
     <a class="btn" href="/About">Saber más</a>
+</div>
