@@ -24,9 +24,9 @@ This goes into appsettings.Development.json
     "Model": "gpt-5-nano"
   }
 }
-~~~ bash
+~~~
 
-## TODO  
+## TO DO  
 add logging  
 cache results  
 batch requests  
