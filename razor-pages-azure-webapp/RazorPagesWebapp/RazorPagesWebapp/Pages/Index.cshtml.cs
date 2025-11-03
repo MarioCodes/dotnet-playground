@@ -20,6 +20,7 @@ namespace RazorPagesWebapp.Pages
         public void OnGet()
         {
             Message = _config["MyCustomConfig:IndexText"] ?? "";
+            _logger.LogInformation($"message is: {Message}");
         }
     }
 }
