@@ -12,6 +12,9 @@ Personal repository to test new .NET features, nuggets, integrations or just my 
 * No front. It's just an API - use Swagger to test requests
 * It implements an in-memory database
 
+## feature-flags
+Little project which uses Razor Pages for visibility. It implements Featuer Flags to enable/disable features in runtime.  
+
 ## razor-pages-basic-webapp
 Basic Razor Pages project to test deployment with Azure Web Apps. Done using [the following docs](https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net80&pivots=development-environment-vs).  
 It doesn't include any ORM or database.  

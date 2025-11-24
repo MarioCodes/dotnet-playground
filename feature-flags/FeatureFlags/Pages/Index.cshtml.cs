@@ -1,26 +1,25 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.FeatureManagement;
+using Microsoft.FeatureManagement.Mvc;
 
 namespace RazorPagesWebapp.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel(
+        IFeatureManager _featureManager,
+        IConfiguration _config,
+        ILogger<IndexModel> _logger) : PageModel
     {
-        private readonly IConfiguration _config;
-        private readonly ILogger<IndexModel> _logger;
 
         public string Message { get; set; }
 
-        public IndexModel(IConfiguration config, 
-            ILogger<IndexModel> logger)
+        public async Task OnGet()
         {
-            _config = config;
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-            Message = _config["MyCustomConfig:IndexText"] ?? "";
-            _logger.LogInformation($"message is: {Message}");
+            bool customGreetingEnabled = await _featureManager.IsEnabledAsync("CustomGreeting");
+            if (customGreetingEnabled)
+            {
+                Message = _config["MyCustomConfig:IndexText"] ?? "";
+                _logger.LogInformation($"message is: {Message}");
+            }
         }
     }
 }

@@ -1,7 +1,14 @@
+using Microsoft.FeatureManagement;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddFeatureManagement(builder.Configuration.GetSection("FeatureManagement"));
+
+builder.Configuration
+    .AddEnvironmentVariables()
+    .AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true);
 
 var app = builder.Build();
 
